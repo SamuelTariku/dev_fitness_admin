@@ -2,7 +2,8 @@
   <Titlebar title="Exercises" />
   <div class="widget-area">
     <ManageData title="Manage exercises" :data="exercises"/>
-
+    <!-- Fitness plan widgets -->
+    <ManageData title="Manage fitness plans" :data="fitnessPlans"/>
   </div>
 
 </template>
@@ -27,6 +28,14 @@ export default {
           Type: "Cardio",
         },
       ],
+      fitnessPlans: [
+        {
+          Fitness_Plan_ID: 1,
+          Name: "Abel's Diet Plan",
+          CreatedBy: "AbelAlemu",
+        },
+      ],
+
     };
   },
 };

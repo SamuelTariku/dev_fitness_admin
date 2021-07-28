@@ -107,6 +107,14 @@
             <i class="fas fa-bullseye"></i> Goals</router-link
           >
         </li>
+        <li class="nav-item">
+          <router-link
+            to="/blogs"
+            class="nav-link"
+            :class="isName('Blogs') ? 'nav-link-active' : ''">
+            <i class="fas fa-clone"></i> Blog</router-link
+          >
+        </li>
       </ul>
     </div>
   </nav>

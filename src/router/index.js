@@ -11,6 +11,7 @@ import DashboardGroup from '../views/Dashboard/Dash-Groups.vue'
 import DashboardExercise from '../views/Dashboard/Dash-Exercises.vue'
 import DashboardMeal from '../views/Dashboard/Dash-Meals.vue'
 import DashboardGoal from '../views/Dashboard/Dash-Goals.vue'
+import DashboardBlog from '../views/Dashboard/Dash-Blog.vue'
 
 const routes = [
   {
@@ -57,6 +58,11 @@ const routes = [
         path:'/goals',
         name: 'Goals',
         component: DashboardGoal
+      },
+      {
+        path:'/blogs',
+        name: 'Blogs',
+        component: DashboardBlog
       },
     ]
     

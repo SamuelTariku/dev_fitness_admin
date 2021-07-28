@@ -7,12 +7,11 @@
       </div>
       <div class="form-group">
         <label for="">Password</label>
-        <input type="text" placeholder="Password" class="form-control" />
+        <input type="password" placeholder="Password" class="form-control" />
       </div>
       <div class="button-container">
         <button type="submit" class="btn btn-primary btn-block">Submit</button>
       </div>
-
     </template>
   </Popup>
 </template>
@@ -27,24 +26,24 @@ export default {
   },
 
   methods: {
-      toggleAdmin() {
-          console.log('togglePopup')
-          this.$refs.PopupComponent.togglePopup()
-      }
-  }
+    toggleAdmin() {
+      console.log("togglePopup");
+      this.$refs.PopupComponent.togglePopup();
+    },
+  },
 };
 </script>
 
 <style scoped>
-  label {
-    font-weight: bold;
-  }
+label {
+  font-weight: bold;
+}
 
-  .form-group {
-    margin: 2vh 0;
-  }
+.form-group {
+  margin: 3vh 0;
+}
 
-  .button-container {
-    text-align: left;
-  }
+.button-container {
+  text-align: left;
+}
 </style>

@@ -5,20 +5,6 @@
     </div>
     <div class="topbar">
       <h3 class="widget-title">{{ title }}</h3>
-      <SearchBar @search="filterData" />
-      <div class="widget-title-right">
-        <Button
-          text="+"
-          color="#0f0"
-          text_color="white"
-          icon="fa fa-plus"
-          @buttonClick="$emit('add_data')"
-        />
-        <slot name="createPopup"></slot>
-      </div>
-    </div>
-    <div v-show="search.length > 0">
-      Search results: {{search}}
     </div>
     <div v-show="data.length == 0" style="text-align:center">
       <p>There are no entries</p>
@@ -43,18 +29,21 @@ export default {
   },
   data: () => {
     return {
-      search: '',
+      search: "",
       functions: [
         {
-          text: "Update",
+          text: "Info",
           color: "blue",
-          text_color: "white",
-          icon: "fas fa-edit",
+          text_color: "white"
         },
         {
-          text: "Delete",
+          text: "Approve",
+          color: "green",
+          text_color: "white",
+        },
+        {
+          text: "Reject",
           color: "red",
-          icon: "fa fa-trash",
         },
       ],
     };
@@ -67,12 +56,11 @@ export default {
 
   methods: {
     filterData(value) {
-      if(value.length > 0) {
-        this.search = value
+      if (value.length > 0) {
+        this.search = value;
       } else {
-        this.search = ''
+        this.search = "";
       }
-      
     },
   },
 };
@@ -80,11 +68,10 @@ export default {
 
 <style scoped>
 .widget {
-  width: 100%;
   padding-top: 0;
 }
 
-.widget_control{ 
+.widget_control {
   text-align: right;
 }
 .search-bar {

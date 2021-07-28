@@ -29,7 +29,7 @@
           >
             {{ row[col] }}
           </td>
-          <div v-if="functions.length > 0">
+          <div v-if="functions.length > 0" style="padding:0">
             <td
               v-for="(functs, index) in functions"
               :key="index"
@@ -81,11 +81,11 @@ export default {
 
 <style scoped>
 tr {
-  border: 1px solid #ccc;
+  border: 1px solid white;
 }
-thead {
+/* thead {
   background: #eee;
-}
+} */
 
 td .hover:hover {
   cursor: pointer;

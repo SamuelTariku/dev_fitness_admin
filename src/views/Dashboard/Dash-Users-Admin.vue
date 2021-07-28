@@ -35,13 +35,11 @@ export default {
           ID: 1,
           Full_Name: "SamuelTariku",
           Last_Login: "10th May 2021",
-          Date_of_Birth: "10th May 2021",
         },
         {
           ID: 1,
           Full_Name: "AbelAlemu",
           Last_Login: "10th May 2021",
-          Date_of_Birth: "10th May 2021",
         },
       ],
     };

@@ -6,13 +6,22 @@
         <div class="modal-content">
           <div class="modal-header">
             <h4 class="modal-title">{{ title }}</h4>
-
           </div>
           <div class="modal-body">
+            <Tabs
+              @tab_click="changeTab"
+              :active="activeTab"
+              :tabs="tabs"
+            />
             <slot name="body"></slot>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" @click="active=false">
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              data-dismiss="modal"
+              @click="active = false"
+            >
               Close
             </button>
           </div>
@@ -23,25 +32,39 @@
 </template>
 
 <script>
+import Tabs from "@/components/Tabs.vue";
+
 export default {
   name: "Popup",
   data() {
-      return {
-          active: false
-      }
+    return {
+      active: false,
+      activeTab: 0,
+    };
   },
   props: {
-      title: {
-          type: String,
-          default: ''
-      },
+    title: {
+      type: String,
+      default: "",
+    },
+    tabs: {
+      type: Array,
+      default: [],
+    }
   },
   methods: {
-      togglePopup(){
-          console.log('changeActive')
-          this.active = !this.active
-      }
-  }
+    togglePopup() {
+      this.active = !this.active;
+    },
+    changeTab(event) {
+      this.$emit('tab_click', event)
+      this.activeTab = event;
+
+    },
+  },
+  components: {
+    Tabs,
+  },
 };
 </script>
 
@@ -58,9 +81,7 @@ export default {
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
-
-
 .modal-content {
-    padding: 2vh;
+  padding: 2vh;
 }
 </style>

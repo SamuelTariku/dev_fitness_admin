@@ -2,7 +2,8 @@
   <Titlebar title="Meals" />
   <div class="widget-area">
     <ManageData title="Manage meals" :data="meals"/>
-
+    <!-- meal plan -->
+    <ManageData title="Manage diet plans" :data="dietPlans"/>
   </div>
 </template>
 
@@ -20,14 +21,20 @@ export default {
     return {
       meals: [
         {
+          Image: '{url}',
           Meal_ID: 1,
           Name: "Doro_Wet",
-          Carbs: 6.5,
-          Protein: 43.6,
-          Fat: 19.2,
           Calories: 381.6,
         },
       ],
+      dietPlans: [
+        {
+          Diet_Plan_ID: 1,
+          Name: "Abels Diet Plan",
+          CreatedBy: "AbelAlemu",
+        },
+      ],
+
     };
   },
 };
