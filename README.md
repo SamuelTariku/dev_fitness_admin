@@ -1,5 +1,7 @@
 <<<<<<< HEAD
-# fitness-admin
+# Development Fitness Application Admin Web Console
+
+Development repository for fitness admin
 
 ## Project setup
 ```
@@ -18,7 +20,5 @@ npm run build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
-=======
-# dev_fitness_admin
-Development repository for fitness admin
->>>>>>> main
+
+
