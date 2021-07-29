@@ -1,59 +1,39 @@
 <template>
   <Popup
-    title="Create Group"
+    title="Create Diet Plan"
     ref="PopupComponent"
-    :tabs="['General', 'Group options', 'Member options']"
+    :tabs="['General', 'Meals']"
     @tab_click="changeTab"
   >
     <template v-slot:body>
       <!-- General -->
       <div v-show="activeTab == 0" class="generalOptions">
         <div class="form-group">
-          <label for="">Group Name</label>
-          <input type="text" placeholder="Group name" class="form-control" />
+          <label for="">Diet Plan Name</label>
+          <input type="text" placeholder="Diet Plan Name" class="form-control" />
         </div>
         <div class="form-group">
-          <label for="">Password</label>
-          <input type="password" placeholder="Password" class="form-control" />
-        </div>
-      </div>
-
-      <!-- Group Options -->
-      <div v-show="activeTab == 1" class="groupOptions">
-        <div class="form-group">
-          <label for="">Is Private</label>
-          <input
-            class="form-check-input mx-5"
-            type="checkbox"
-            placeholder="Cost/Hour"
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="">Admin</label>
+          <label for="">Public</label>
           <select class="form-control">
-            <option>1</option>
+            <option>Yes</option>
+            <option>No</option>
           </select>
         </div>
       </div>
-
-      <!--  Members -->
-      <div v-show="activeTab == 2" class="memberOptions">
+      <!-- Meals -->
+      <div v-show="activeTab == 1" class="dietPlanMeals">
+        <WeekCalander />
         <div class="form-group">
-          <label for="">Members</label>
-          <SmallList
-            :button="{
-              text: 'delete',
-              color: '#ccc',
-              text: 'black',
-              icon: 'fa fa-user-times',
-            }"
-          />
+          <!-- <label for="">Meals</label> -->
+          <!-- <SmallList/> -->
         </div>
-        <Search />
+        <div class="meals mx-3">
+          <Search title="Breakfast" />
+          <Search title="Lunch" />
+          <Search title="Dinner" />
+        </div>
       </div>
 
-      <!-- Button -->
       <div class="button-container">
         <button type="submit" class="btn btn-primary btn-block">Submit</button>
       </div>
@@ -65,25 +45,30 @@
 import Popup from "@/components/Popup.vue";
 import Search from "@/components/Search.vue";
 import SmallList from "@/components/smallList.vue";
+import WeekCalander from "@/components/WeekCalander.vue";
+
 export default {
   name: "CreateAdmin",
   components: {
     Popup,
     Search,
     SmallList,
+    WeekCalander,
   },
   data() {
     return {
       activeTab: 0,
-
+      selectedExercise: {
+        measureType: "REP",
+      },
     };
   },
-
   methods: {
-    toggleGroup() {
+    toggleDietPlan() {
       this.$refs.PopupComponent.togglePopup();
     },
     changeTab(event) {
+      console.log(event);
       this.activeTab = event;
     },
   },
@@ -101,5 +86,10 @@ label {
 
 .button-container {
   text-align: left;
+}
+
+.exerciseInfo {
+  border: 1px solid #ccc;
+  margin: 1vh;
 }
 </style>

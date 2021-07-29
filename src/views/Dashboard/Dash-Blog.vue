@@ -1,20 +1,30 @@
 <template>
   <Titlebar title="Blogs" />
   <div class="widget-area">
-    <ManageData title="Manage blogs" :data="users"/>
-
+    <ManageData title="Manage blogs" :data="users" @add_data="addBlog()">
+      <template v-slot:createPopup>
+        <CreateBlog ref="AddBlog" />
+      </template>
+    </ManageData>
   </div>
 </template>
 
 <script>
 import Titlebar from "@/components/Titlebar.vue";
 import ManageData from "@/components/Widgets/ManageData.vue";
+import CreateBlog from "@/components/Popup/CreateBlog.vue";
 
 export default {
   name: "DashboardAdmin",
   components: {
     Titlebar,
     ManageData,
+    CreateBlog,
+  },
+  methods:  {
+    addBlog() {
+      this.$refs.AddBlog.toggleBlog()
+    }
   },
   data() {
     return {

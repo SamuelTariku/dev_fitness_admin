@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <div class="row">
         <Sidebar ref="SidebarComponent"/>
-        <main role="main" class="col-md-9 col-lg-10">
+        <main role="main" class="col-md-10">
         <router-view></router-view>
         </main>
     </div>
@@ -36,7 +36,7 @@ export default {
 
 <style>
 .widget {
-  margin: 3vh 2vw;
+  margin: 3vh 1vw;
   padding: 3vh 2vw;
   box-shadow: 1vh 1vh 2vh #ccc;
   background: white;
@@ -55,6 +55,10 @@ export default {
 </style>
 
 <style scoped>
+html {
+  margin: 0;
+  padding: 0;
+}
 body {
   font-size: 0.875rem;
 }

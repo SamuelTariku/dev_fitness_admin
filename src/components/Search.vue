@@ -1,6 +1,6 @@
 <template>
   <div class="form-group">
-    <label for="">Add new member</label>
+    <label for="">{{ title }}</label>
     <div class="row">
       <div class="col">
         <input
@@ -31,8 +31,15 @@
 <script>
 export default {
   name: "Search",
+  props: {
+    title: {
+      type: String,
+      default: "Search",
+    },
+  },
   data() {
     return {
+      searchIdentifer: 0,
       dropdownSearch: false,
       searchText: "",
       searchFound: false,
@@ -42,6 +49,9 @@ export default {
 </script>
 
 <style scoped>
+label {
+  font-weight: bold;
+}
 li {
   border: none;
 }
